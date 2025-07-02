@@ -116,6 +116,13 @@ class Up(nn.Module):
     def __init__(self, in_channels, out_channels): 
         super().__init__()
 
+        
+        self.deconv_= nn.Sequential(
+            nn.ConvTranspose2d(in_channels, out_channels, 2, stride=2),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(),
+
+        )
 
         self.deconv= nn.Sequential(
     
